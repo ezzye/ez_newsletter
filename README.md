@@ -108,7 +108,19 @@ The dictionary returned should have the following format:
   }
 }
 ```
-
+The input results dictionary dict has the following format:
+```python
+[
+    {
+        "link": "https://www.example.com",
+        "text": "Example related text"
+    },
+    {
+        "link": "https://www.example2.com",
+        "text": "Example2 related text"
+    }
+]
+```
 
 
 
