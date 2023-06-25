@@ -58,7 +58,7 @@ It should return the results as a dictionary with the following format.
 Write a python function to take a parameters an input file name(without extension), topic, search term, page number, results dictionary
 for a search term and append results to a dictionary.
 The dictionary returned should have the following format:
-```json
+```python
 {
   "file name": {
     "topic1": {
