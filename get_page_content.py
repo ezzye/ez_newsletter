@@ -30,8 +30,8 @@ def scrape_url_for_terms(url, page_search_terms):
 
 
 page = "https://www.londonremembers.com/memorials/marc-bolan-n16"
-page_search = ["marc", "bolan", "t rex", "Mark", "Feld", "newington"]
+page_search = ["marc", "bolan", "t rex", "Mark", "Feld"]
 output = scrape_url_for_terms(page, page_search)
 print(output)
 
-# need to also follow read more links
+# do the same thing n levels down as long as content contains page search terms
