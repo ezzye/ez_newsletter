@@ -3,6 +3,55 @@
 A python script to take a folder of search items about a general topic then generate a file web links of pages 
 containing information. Then to use those page links and image links to generate a newsletter. Which is the shared on google drive.
 
+
+## Scrape test snippets and image links from pages
+
+Write a python function to take a `url` and `page search terms`  and scrape the url page for text snippets.
+It should use python library `BeautifulSoup` to parse the page and extract all the text snippets.
+It should use code similar to example code below to extract a list of text snippets from the page.
+```python
+markup = '<a href="http://example.com/">\nI linked to <i>example.com</i>\n</a>'
+soup = BeautifulSoup(markup, 'html.parser')
+[text for text in soup.stripped_strings]
+```
+It should then join the text snippets together with a '|' between them to make strings of text bigger than 1000 characters,
+if possible, but less than 2000 characters.
+
+It should then filter the resulting strings and only include a string in the results list of strings if it contains at least one
+of the list of `page search terms` from the function parameters.
+
+It should return a result list of strings.
+
+
+
+
+markup = '<a href="http://example.com/">\nI linked to <i>example.com</i>\n</a>'
+soup = BeautifulSoup(markup, 'html.parser')
+
+soup.get_text()
+'\nI linked to example.com\n'
+soup.i.get_text()
+'example.com'
+You can specify a string to be used to join the bits of text together:
+
+# soup.get_text("|")
+'\nI linked to |example.com|\n'
+You can tell Beautiful Soup to strip whitespace from the beginning and end of each bit of text:
+
+# soup.get_text("|", strip=True)
+'I linked to|example.com'
+But at that point you might want to use the .stripped_strings generator instead, and process the text yourself:
+
+[text for text in soup.stripped_strings]
+# ['I linked to', 'example.com']
+
+
+
+
+
+
+
+
 ## Print Google Search Results
 Write a python script to take a files from folder called `search` that contains json files.
 
