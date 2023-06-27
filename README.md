@@ -22,6 +22,15 @@ of the list of `page search terms` from the function parameters.
 
 It should return a result list of strings.
 
+Write a python function to take a `url` and `image search terms`  and scrape the url page for image links.
+It should use python library `BeautifulSoup` or a similar library to parse the page and extract all the image links.
+It should return a result list of image links. Consider image tags also consider alt text and text 50 characters 
+before and after the image link when filtering by `image search terms`.
+
+Write a python function to take a `url` and `page search terms`  and scrape the url page for web links.
+It should use python library `BeautifulSoup` or a similar library to parse the web links on the page.
+It should return two lists, one of same domain links and one of different domain links.
+
 
 
 
