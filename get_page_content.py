@@ -13,7 +13,7 @@ total_results_texts, total_results_image_links = [], []
 
 
 def scrape_url_for_terms(url, page_search_terms, image_search_terms,
-                         total_results_texts, total_results_image_links, level=0, domain=None,):
+                         total_results_texts, total_results_image_links, level=0, domain=None, ):
     # add url to list of visited urls
     if url in visited_urls:
         return [], []
@@ -40,11 +40,15 @@ def scrape_url_for_terms(url, page_search_terms, image_search_terms,
     if level < 2:
         for link in in_results_links:
             in_results_texts, in_results_image_links = scrape_url_for_terms(link, page_search_terms, image_search_terms,
-                                        total_results_texts, total_results_image_links, level=level + 1, domain=domain )
+                                                                            total_results_texts,
+                                                                            total_results_image_links, level=level + 1,
+                                                                            domain=domain)
     if level < 1:
         for link in ex_results_links:
             ex_results_texts, ex_results_image_links = scrape_url_for_terms(link, page_search_terms, image_search_terms,
-                                        total_results_texts, total_results_image_links, level=level + 1, domain=domain)
+                                                                            total_results_texts,
+                                                                            total_results_image_links, level=level + 1,
+                                                                            domain=domain)
 
     total_results_texts.extend(results_texts)
     total_results_texts.extend(in_results_texts)
@@ -122,14 +126,24 @@ def scrape_url_for_links(soup, page_search_terms, original_domain):
     return same_domain_links, different_domain_links
 
 
+def remove_duplicates(links, text_snippets):
+    unique_links = list(set(links))  # Remove duplicate links
+
+    # Separate snippets by '|' character and remove duplicates
+    all_snippets = [snippet for text in text_snippets for snippet in text.split('|')]
+
+    return unique_links, all_snippets
+
+
 page_url = "https://www.londonremembers.com/memorials/marc-bolan-n16"
 page_search = ["marc", "bolan", "t rex", "Mark", "Feld"]
 image_search = ["marc", "bolan", "t rex", "Mark", "Feld", "Rolan", "Bolan", "Newington", "dyslexia", "Glam Rock",
                 "Jewish", "songwriter"]
 output_text, output_image = scrape_url_for_terms(page_url, page_search, image_search, total_results_texts,
                                                  total_results_image_links)
-print(output_text)
-print(output_image)
+
+output_text_snippets, output_images_deduped = remove_duplicates(output_image, output_text)
+
+print(output_text_snippets)
+print(output_images_deduped)
 print(visited_urls)
-
-
