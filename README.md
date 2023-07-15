@@ -480,3 +480,182 @@ Example of `links.json`:
 }
 ```
 
+## How To Write a Newsletter
+
+Step 1 – Give people a reason to opt in
+Step 2 – Stick to your goal
+Step 3 – Craft an enticing subject line
+Step 4 –  Write a killer opening line
+Step 5 – Connect in the body
+Step 6 – Be consistent without annoying your subscribers
+Step 7 – Discuss relevant content
+Add Visuals to Enhance Your Content
+Tell a Story
+Create Urgency
+Step 8 – Nail the closing
+Step 9 – Measure your results
+
+
+
+## Write a Python Script to Write an Article with Images, Title and links
+
+Write a python script that uses openai API and langchain to take a folder of text snippets and for each write a markdown formatted article with web links and images. I have uploaded `API Reference - OpenAI API.pdf` This outline openai API.
+Use the following python libraries:
+`langchain`
+`openai`
+`json`
+Then it outputs a markdown file to the `article` folder.
+The text snippet file has the following `json` format:
+```json
+{
+  "The main topic of the article": {
+    "google search term used for the main topic": {
+      "url of the web page that matches topic and search term": {
+        "title": "The title of the web page",
+        "text": "Text on google search results page",
+        "google search terms": [
+          "List of possible google search terms"
+        ],
+        "image search terms": [
+          "list of possible image search terms"
+        ],
+        "page search terms": [
+          "search terms used to fine page text snippets on webpage"
+        ],
+        "page_text_snippets": [
+          "List of text snippets from the web page.  Each text snippet is content from webpage for a page search term divided by a `|` character."
+        ],
+        "image_links": [
+          "List of image links from the web page"
+        ]
+      }
+    }
+  }
+}
+```
+The output of the script should be a markdown file in the `article` folder.
+The file should be named `article_{topic}_{article title}_{search term}_{page search term}.md`.
+The markdown file should have the following format:
+```markdown
+# "An Enticing Subject Line Incorporating the Main Topic of the Article"
+
+## "A Killer Opening Line"
+
+"Write content based on some of the text snippets, include discussion of relevant content.  Add visuals using the `image_links` to enhance the content.  Tell a story.  Create urgency.  Also add url links to the web page from `url`. Add a closing line.  `google search terms` and `image search terms` give also give an indication of importance of different parts of text snippet."
+```
+Use markdown to include images and links in the article. For example
+```markdown
+![alt text]({domain if necessary}{image link})
+```
+```markdown
+[link text]({domain if necessary}{url})
+```
+
+
+## Write a Markdown Article with Images, Title and links
+
+Output a long article using markdown format with images, title and links from json format text snippets.
+The article should be markdown formatted with web links and images. It should not just be the text snippets.
+It should read like a well written interesting article.
+Extra pictures should be added to end of article.
+You may need to add domain to internal links.
+
+The text snippet file has the following `json` format:
+```json
+{
+  "The main topic of the article": {
+    "google search term used for the main topic": {
+      "url of the web page that matches topic and search term": {
+        "title": "The title of the web page",
+        "text": "Text on google search results page",
+        "google search terms": [
+          "List of possible google search terms"
+        ],
+        "image search terms": [
+          "list of possible image search terms"
+        ],
+        "page search terms": [
+          "search terms used to fine page text snippets on webpage"
+        ],
+        "page_text_snippets": [
+          "List of text snippets from the web page.  Each text snippet is content from webpage for a page search term divided by a `|` character."
+        ],
+        "image_links": [
+          "List of image links from the web page"
+        ]
+      }
+    }
+  }
+}
+```
+The markdown formatted article should have the following format:
+```markdown
+# "An Enticing Subject Line Incorporating the Main Topic of the Article"
+
+## "A Killer Opening Line"
+
+"Write content based on some of the text snippets, include discussion of relevant content.  Add visuals using the `image_links` to enhance the content.  
+Tell a story.  Create urgency.  Also add url links to the web page from `url`. 
+Add a closing line.  `google search terms` and `image search terms` give also give an indication of importance of different parts of text snippet."
+```
+Use markdown to include images and links in the article. For example
+```markdown
+![alt text]({domain if necessary}{image link})
+```
+```markdown
+[link text]({domain if necessary}{url})
+```
+text snippets
+Text snippets separated by `|` 
+```json
+{
+  "Marc Bolan": {
+    "Stoke Newington": {
+      "http://knowledgeoflondon.com/marcbolan.html": {
+        "title": "Marc Bolan London's First Glam-Rock Star",
+        "text": "Marc Bolan was born Mark Feld on 30 September 1947, at 25a Stoke Newington Common, where he lived up until 1962 with his mother, Phyllis, who worked on a Soho\u00a0...",
+        "google search terms": [
+          "Stoke Newington",
+          "T Rex",
+          "Tyrannosaurus Rex",
+          "Hackney",
+          "Jewish"
+        ],
+        "image search terms": [
+          "marc",
+          "bolan",
+          "t rex",
+          "Mark",
+          "Feld",
+          "Rolan",
+          "Bolan",
+          "Newington",
+          "dyslexia",
+          "Glam Rock",
+          "Jewish",
+          "songwriter"
+        ],
+        "page search terms": [
+          "marc",
+          "bolan",
+          "t rex",
+          "Mark",
+          "Feld"
+        ],
+        "page_text_snippets": [
+          "London Famous | Marc Bolan London's First Glam-Rock Star|MENU|London Famous|Famous Residents #1|Famous Residents #2|London Foreigners|Music Hall Residents|London Homes|Canonbury House|Tin Pan Alley|Marc Bolan|George Orwell|Thomas Crapper|John Claudius Loudon|Charles Dickens in London|J.M.Barrie|Arthur Phillip|Sir Richard Burton|William Morris|Marc Bolan, London's First Glam-Rock Star|25a Stoke Newington Common|Marc Bolan was born Mark Feld on 30 September 1947, at 25a Stoke Newington Common, where he lived up until 1962 with his mother, Phyllis, who worked on a Soho fruit stall, (Marc would sometimes assist) and his father, Simeon, a lorry driver.|While attending Northwold School he played guitar in a group \"Susie and the Hoops\" alongside 12-year old vocalist Helen Shapiro, who found fame before Marc in early 1961 with her first hit \u0093Walking Back to Happiness\u0094. Marc left school as soon as he could in 1962 and about the same time moved from his Stoke Newington Common home. He briefly joined a modelling agency and became a \"John Temple Boy,\" appearing in a clothing catalogue for the menswear store.|His first stage name was Toby Tyler, which he took from a film of the same name, before he settled, sometime later, for Marc Bolan, Bolan coming from the first two and last three letters of his hero Bo(b) (Dy)lan|He is best known as the founder of the British rock band Tyrannosaurus Rex, which was later abbreviated to T. Rex. His music, as well as his highly original sense of style and extraordinary stage presence, helped create the glam rock era which made him one of the most recognizable stars in British rock music.|Marc was to spend his last night in Morton\u0092s bar and restaurant at Berkeley Square, along with his girlfriend Gloria Jones, who drove him home in her Mini 1275GT (registration FOX 661L). Marc never took a driving test or had a licence. He died instantly when Jones lost control of the car and it struck a sycamore tree after failing to negotiate a small humpback bridge near Gipsy Lane on Queens Ride, Barnes, in South West London at 5 a.m. on 16 September 1977."
+        ],
+        "image_links": [
+          "/images/marcbolanhse.jpg",
+          "http://knowledgeoflondon.com/cgi-bin/sitestats.gif?p=http%3A%2F%2Fknowledgeoflondon.com%2Fmarcbolan.html;r=-;"
+        ]
+      }
+    }
+  }
+}
+```
+No need to summarise the text snippets, just use them to write the markdown formatted article.
+Try to be as factual as possible, but feel free to add your own opinion.
+Output should be  markdown formatted  article based on text snippet json.
+
+

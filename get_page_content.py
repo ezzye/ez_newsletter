@@ -2,10 +2,11 @@
 
 
 from bs4 import BeautifulSoup
-import requests
+# import requests
 import re
 from urllib.parse import urlparse
 from urllib.parse import urljoin
+from get_search_results import get_request
 
 visited_urls = []
 level = 0
@@ -13,7 +14,7 @@ total_results_texts, total_results_image_links = [], []
 
 
 def scrape_url_for_terms(url, page_search_terms, image_search_terms,
-                         total_results_texts, total_results_image_links, level=0, domain=None, ):
+                         total_results_texts, total_results_image_links, level=0, domain=None):
     # add url to list of visited urls
     if url in visited_urls:
         return [], []
@@ -27,7 +28,7 @@ def scrape_url_for_terms(url, page_search_terms, image_search_terms,
         domain = urlparse(url).netloc
 
     # Download the webpage
-    response = requests.get(url)
+    response = get_request(url)
     # Parse the HTML with BeautifulSoup
     soup = BeautifulSoup(response.text, 'html.parser')
 
@@ -130,9 +131,9 @@ def remove_duplicates(links, text_snippets):
     unique_links = list(set(links))  # Remove duplicate links
 
     # Separate snippets by '|' character and remove duplicates
-    all_snippets = [snippet for text in text_snippets for snippet in text.split('|')]
+    # all_snippets = [snippet for text in text_snippets for snippet in text.split('|')]
 
-    return unique_links, all_snippets
+    return unique_links, text_snippets
 
 
 page_url = "https://www.londonremembers.com/memorials/marc-bolan-n16"
